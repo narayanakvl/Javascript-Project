@@ -11,7 +11,7 @@ const SYMBOLS_COUNT = {
     "D":8
 }
 
-const SYMBOL_VALUSE = {
+const SYMBOL_VALUES = {
     "A":5,
     "B":4,
     "C":3,
@@ -78,9 +78,79 @@ const spin = () =>{
     return reels;
 };
 
-const reels = spin();
-console.log(reels);
-let balance = deposit();
+const transpose = (reels) => {
+    const rows = [];
+
+    for(let i=0;i<ROWS;i++){
+        rows.push([]);
+        for(let j=0;j<COLS;j++){
+            rows[i].push(reels[j][i]);
+        }
+    }
+    return rows;
+};
+
+const printRows = (rows) => {
+    for(const row of rows){
+        let rowString = "";
+        for(const[i,symbol] of rows.entries()){
+            rowString += symbol
+            if(i!=rows.length-1){
+                rowString +=" | "
+            }
+
+        }
+        console.log(rowString)
+    }
+};
+
+const getWinnings = (rows, bet, lines) => {
+    let winnings = 0;
+
+    for (let row = 0; row<lines;row++){
+        const symbols = rows[row];
+        let allSame = true;
+
+        for(const symbol of symbols){
+            if(symbol != symbols[0]){
+                allSame = false;
+                break;
+            }
+        }
+        if(allSame){
+            winnings += bet * SYMBOL_VALUES[symbols[0]];
+        }
+        
+    }
+    return winnings;
+}
+
+const game = () => {
+
+    let balance = deposit();
+    while(true){
+        console.log("You have a balance " + balance);
 const numberOfLines = getNumberOfLines();
 const bet = getBet(balance, numberOfLines);
-console.log("Hello i am narayana")
+balance -=bet * numberOfLines;
+const reels = spin();
+const rows = transpose(reels);
+printRows(rows);
+const winnings = getWinnings(rows, bet, numberOfLines);
+balance += winnings;
+console.log("You won," + winnings.toString());
+if(balance<=0){
+    console.log("You ran out of money");
+    break;
+
+
+}
+const playAgain = prompt("You have "+balance+" balance!"+" Do u want to play again (y/n)?");
+if(playAgain != "y"){
+    break;
+}
+    }
+
+}
+game();
+
