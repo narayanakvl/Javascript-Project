@@ -83,3 +83,4 @@ console.log(reels);
 // let balance = deposit();
 // const numberOfLines = getNumberOfLines();
 // const bet = getBet(balance, numberOfLines);
+//hello this is karthik
