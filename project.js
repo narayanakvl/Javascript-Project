@@ -154,3 +154,6 @@ if(playAgain != "y"){
 }
 game();
 
+console.log("Hello i am narayana");
+
+//Heloo this is Karthik
