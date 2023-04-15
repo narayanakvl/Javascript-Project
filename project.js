@@ -86,3 +86,4 @@ const bet = getBet(balance, numberOfLines);
 console.log("Hello i am narayana")
 
 //Heloo this is Karthik
+
