@@ -160,3 +160,5 @@ console.log("Hello i am narayana");
 
 
 // Hello I am adding into this.
+
+// Explination of the Diff command in the Git By karthik Vaddadi.
