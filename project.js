@@ -143,6 +143,7 @@ if(balance<=0){
     console.log("You ran out of money");
     break;
 
+<<<<<<< HEAD
 
 }
 const playAgain = prompt("You have "+balance+" balance!"+" Do u want to play again (y/n)?");
@@ -157,3 +158,7 @@ game();
 console.log("Hello i am narayana");
 
 //Heloo this is Karthik
+=======
+//Heloo this is Karthik
+
+>>>>>>> 9c11492f15966da2c84026ecb85168095bfb4cd5
